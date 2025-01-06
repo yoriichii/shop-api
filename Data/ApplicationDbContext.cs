@@ -10,6 +10,10 @@ namespace shop_api.Data
         }
        public DbSet<Shop> Shops { get; set; }
        public DbSet<Mall> Malls { get; set; }
+        public DbSet<ShopTag> ShopTags { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+
+
     }
-  
+
 }

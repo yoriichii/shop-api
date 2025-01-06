@@ -9,8 +9,6 @@ public partial class Mall
 
     public string? Name { get; set; }
 
-    public string? LocationUrl { get; set; }
-
     public string? OpenHour { get; set; }
 
     public string? ClosedHour { get; set; }
@@ -21,7 +19,5 @@ public partial class Mall
 
     public bool? IsActive { get; set; }
 
-    public string? BackgroundPath { get; set; }
-
-    public virtual Shop IdNavigation { get; set; } = null!;
+    public virtual ICollection<Shop> Shops { get; set; } = new List<Shop>();
 }

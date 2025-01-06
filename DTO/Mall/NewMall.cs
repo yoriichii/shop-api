@@ -4,17 +4,10 @@ namespace shop_api.DTO.Mall
 {
     public class NewMall
     {
-
-        [Required(ErrorMessage = "Name is requied")]
         public string? Name { get; set; }
 
-        public string? LocationUrl { get; set; }
-
-
-        [Required(ErrorMessage = "OpenHour is requied")]
         public string? OpenHour { get; set; }
 
-        [Required(ErrorMessage = "ClosedHour is requied")]
         public string? ClosedHour { get; set; }
 
         public string? MallAddress { get; set; }
@@ -23,6 +16,10 @@ namespace shop_api.DTO.Mall
 
         public bool? IsActive { get; set; }
 
-        public string? BackgroundPath { get; set; }
+        public int? ShopId { get; set; }
+
+        //public virtual ICollection<UpdateMall> InverseShop { get; set; } = new List<Mall>();
+
+        //public virtual NewMall? Shop { get; set; }
     }
 }

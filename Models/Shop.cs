@@ -7,7 +7,7 @@ public partial class Shop
 {
     public int Id { get; set; }
 
-    public string? Contact { get; set; }
+    public int? Contact { get; set; }
 
     public string? Description { get; set; }
 
@@ -15,5 +15,9 @@ public partial class Shop
 
     public bool? IsActive { get; set; }
 
+    public int? MallId { get; set; }
+
     public virtual Mall? Mall { get; set; }
+
+    public virtual ICollection<ShopTag> ShopTags { get; set; } = new List<ShopTag>();
 }
