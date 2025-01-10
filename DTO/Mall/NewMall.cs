@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace shop_api.DTO.Mall
+
 {
     public class NewMall
     {
+        [Required(ErrorMessage = "Name is Required")]
         public string? Name { get; set; }
 
         public string? OpenHour { get; set; }
@@ -16,10 +18,6 @@ namespace shop_api.DTO.Mall
 
         public bool? IsActive { get; set; }
 
-        public int? ShopId { get; set; }
-
-        //public virtual ICollection<UpdateMall> InverseShop { get; set; } = new List<Mall>();
-
-        //public virtual NewMall? Shop { get; set; }
+        //public virtual ICollection<Shop> Shops { get; set; } = new List<Shop>();
     }
 }

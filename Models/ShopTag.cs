@@ -11,7 +11,7 @@ public partial class ShopTag
 
     public int? TagId { get; set; }
 
-    public virtual Shop? Shop { get; set; }
+    public virtual Shop? Shop { get; set; } = null!;
 
-    public virtual Tag? Tag { get; set; }
+    public virtual Tag? Tag { get; set; } = null!;
 }

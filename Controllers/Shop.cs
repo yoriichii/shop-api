@@ -20,13 +20,27 @@ namespace shop_api.Controllers
         [HttpGet]
         public IActionResult GetShop()
         {
-            // Include Mall data in the query using eager loading
-            var getShop = shopContext.Shops.Include(shop => shop.Mall).ToList();
+            var shops = shopContext.Shops
+                .Include(s => s.ShopTags)
+                    .ThenInclude(st => st.Tag)
+                .Select(s => new
+                {
+                    s.Id,
+                    s.Description,
+                    s.Contact,
+                    s.ShopAddress,
+                    s.IsActive,  
+                    TagList = s.ShopTags.Select(st => new
+                    {
+                        st.Tag.Id,
+                        st.Tag.Name
+                    }).ToList()
+                })
+                .ToList();
 
-            var response = new { Data = getShop };
+            var response = new { Data = shops };
             return Ok(response);
         }
-
 
         [HttpGet("{id:int}")]
 
@@ -107,6 +121,7 @@ namespace shop_api.Controllers
             shopContext.SaveChanges();
             return Ok("Success");
         }    
+
     }
 }
 
